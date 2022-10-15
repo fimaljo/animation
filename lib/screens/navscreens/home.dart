@@ -1,4 +1,9 @@
+import 'package:animation/screens/articles/testtwo.dart';
+import 'package:animation/screens/navscreens/notification.screen.dart';
+import 'package:animation/screens/navscreens/streak/streak.dart';
+import 'package:animation/screens/profile/strek.rating.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 import '../../utils/colors.dart';
@@ -28,23 +33,19 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              if (ZoomDrawer.of(context)!.isOpen()) {
-                ZoomDrawer.of(context)!.close();
-              } else {
-                ZoomDrawer.of(context)!.open();
-              }
-            },
-            icon: const Icon(
-              Icons.notifications_none_outlined,
-              color: Colors.blue,
-              size: 24,
-            ),
-            // Image.asset(
-            //   "assets/Menu.png",
-            //   color: Colors.black,
-            // ),
-          ),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return NotificationScreen();
+                }));
+              },
+              icon: Hero(
+                tag: "Notification",
+                child: SvgPicture.asset(
+                  "assets/clarity_notification-line.svg",
+                  color: Colors.blue,
+                ),
+              )),
         ],
       ),
       body: SingleChildScrollView(
@@ -77,8 +78,8 @@ class HomeScreen extends StatelessWidget {
                     height: 9,
                   ),
                   Container(
-                    width: size.width / 1.2,
-                    height: size.height / 13, //69,
+                    width: size.width,
+                    height: size.height / 12,
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(6),
@@ -91,73 +92,73 @@ class HomeScreen extends StatelessWidget {
                       ],
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.only(top: 10, left: 30),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              Text(
-                                "M",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "T",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "W",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "T",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "F",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                              ),
-                              Text(
-                                "S",
-                                style: TextStyle(
-                                    fontSize: 12, fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 5,
-                          ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 5, right: 8),
+                            padding: const EdgeInsets.only(left: 5),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Image.asset(
-                                  "assets/fxemoji_fire.png",
+                                Text(
+                                  "M",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                Image.asset(
-                                  "assets/Frame 107.png",
+                                SizedBox(
+                                  width: 40,
                                 ),
-                                Image.asset(
-                                  "assets/Frame 107.png",
+                                Text(
+                                  "T",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                Image.asset(
-                                  "assets/Frame 107.png",
+                                SizedBox(
+                                  width: 39,
                                 ),
-                                Image.asset(
-                                  "assets/Frame 107.png",
+                                Text(
+                                  "W",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
                                 ),
-                                Image.asset(
-                                  "assets/Frame 107.png",
+                                SizedBox(
+                                  width: 41,
+                                ),
+                                Text(
+                                  "T",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: 45,
+                                ),
+                                Text(
+                                  "F",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                SizedBox(
+                                  width: 39,
+                                ),
+                                Text(
+                                  "S",
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ],
                             ),
                           ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          StrekRating(rating: 3)
                         ],
                       ),
                     ),
@@ -165,109 +166,105 @@ class HomeScreen extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  Wrap(
+                  Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          height: size.height / 8.2,
-                          width: size.width / 2.9,
-                          decoration: BoxDecoration(
-                              color: dark,
-                              borderRadius: BorderRadius.circular(6)),
-                          child: Padding(
+                      Row(
+                        children: [
+                          Padding(
                             padding: const EdgeInsets.all(2.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 7, left: 10),
-                                  child: Text(
-                                    "Learn",
-                                    style: TextStyle(color: Colors.white),
+                            child: Container(
+                              height: size.height / 8.2,
+                              width: size.width / 2.8,
+                              decoration: BoxDecoration(
+                                  color: dark,
+                                  borderRadius: BorderRadius.circular(6)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(top: 5, left: 10),
+                                    child: Text(
+                                      "Learn",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 1,
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                      left: 1,
+                                    ),
+                                    child: Image.asset(
+                                      "assets/Frame 101.png",
+                                      height: 50,
+                                    ),
                                   ),
-                                  child: Image.asset(
-                                    "assets/Frame 101.png",
-                                    height: 70,
-                                  ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          height: size.height / 8.2,
-                          width: size.width / 2.1,
-                          decoration: BoxDecoration(
-                              color: dark,
-                              borderRadius: BorderRadius.circular(6)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(bottom: 66),
-                                  child: const Text(
+                          Container(
+                            height: size.height / 8.2,
+                            width: size.width / 2.1,
+                            decoration: BoxDecoration(
+                                color: dark,
+                                borderRadius: BorderRadius.circular(6)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  const Text(
                                     "Streaks",
                                     style: TextStyle(color: Colors.white),
                                   ),
-                                ),
-                                Image.asset("assets/Frame 103 1.png"),
-                              ],
+                                  Image.asset("assets/Frame 103 1.png"),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          height: size.height / 8.2,
-                          width: size.width / 2.1,
-                          decoration: BoxDecoration(
-                              color: dark,
-                              borderRadius: BorderRadius.circular(6)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                      Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Container(
+                              height: size.height / 8.2,
+                              width: size.width / 2.1,
+                              decoration: BoxDecoration(
+                                  color: dark,
+                                  borderRadius: BorderRadius.circular(6)),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(bottom: 66),
+                                      child: Text(
+                                        "Commuinity",
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                    ),
+                                    Image.asset("assets/Frame 104.png"),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                            height: size.height / 8.2,
+                            width: size.width / 2.8,
+                            decoration: BoxDecoration(
+                                color: dark,
+                                borderRadius: BorderRadius.circular(6)),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 const Padding(
-                                  padding: EdgeInsets.only(bottom: 66),
-                                  child: Text(
-                                    "Commuinity",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                ),
-                                Image.asset("assets/Frame 104.png"),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          height: size.height / 8.2,
-                          width: size.width / 2.9,
-                          decoration: BoxDecoration(
-                              color: dark,
-                              borderRadius: BorderRadius.circular(6)),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(bottom: 66),
+                                  padding:
+                                      EdgeInsets.only(bottom: 66, left: 10),
                                   child: Text(
                                     "Events",
                                     style: TextStyle(color: Colors.white),
@@ -277,8 +274,8 @@ class HomeScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                        ),
-                      ),
+                        ],
+                      )
                     ],
                   ),
                   const SizedBox(
@@ -295,11 +292,17 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 18),
                       ),
                       TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            "View All",
-                            style: TextStyle(fontSize: 10),
-                          ))
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return StreakScreen();
+                          }));
+                        },
+                        child: Text(
+                          "View All",
+                          style: TextStyle(fontSize: 10),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(
@@ -340,12 +343,17 @@ class HomeScreen extends StatelessWidget {
                             fontSize: 18),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) {
+                            return ArticlePage();
+                          }));
+                        },
                         child: Text(
                           "View All",
                           style: TextStyle(fontSize: 10),
                         ),
-                      )
+                      ),
                     ],
                   ),
                   DiscoverCard(
@@ -400,18 +408,26 @@ class HomeScreen extends StatelessWidget {
                   Positioned(
                     top: 120,
                     left: 245,
-                    child: Container(
-                      child: Center(
-                        child: Text(
-                          "Let's Go!",
-                          style: TextStyle(color: Colors.white),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return StreakScreen();
+                        }));
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            "Let's Go!",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
+                        height: 30,
+                        width: 70,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: primary),
                       ),
-                      height: 30,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: primary),
                     ),
                   ),
                 ],
@@ -464,18 +480,26 @@ class HomeScreen extends StatelessWidget {
                   Positioned(
                     top: 80,
                     left: 24,
-                    child: Container(
-                      child: Center(
-                        child: Text(
-                          "Let's Go!",
-                          style: TextStyle(color: Colors.white),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context)
+                            .push(MaterialPageRoute(builder: (context) {
+                          return ArticlePage();
+                        }));
+                      },
+                      child: Container(
+                        child: Center(
+                          child: Text(
+                            "Let's Go!",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
+                        height: 30,
+                        width: 70,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: primary),
                       ),
-                      height: 30,
-                      width: 70,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(4),
-                          color: primary),
                     ),
                   ),
                 ],
@@ -545,8 +569,8 @@ class DiscoverCard extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     "UI/UX Design Trends of 2022",
                     style: TextStyle(
                         color: Colors.black,

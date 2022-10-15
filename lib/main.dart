@@ -1,12 +1,28 @@
+import 'package:animation/database/database_notifier.dart';
+import 'package:animation/database/event.controller.dart';
+import 'package:animation/env.dart';
 import 'package:animation/screens/animation/animated_builder.dart';
 import 'package:animation/screens/animation/animated_container.dart';
 import 'package:animation/screens/animation/home.dart';
 import 'package:animation/screens/pageview/pageview_inunity.dart';
 import 'package:animation/widgets/inunty.signup.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: DevConstants.SUPABASE_URL,
+    anonKey: DevConstants.SUPABASE_ANON_KEY,
+    authCallbackUrlHostname: 'login-callback',
+    debug: true,
+  );
+
+  runApp(
+      DevicePreview(enabled: !kReleaseMode, builder: ((context) => MyApp())));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,14 +31,24 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<EventController>(
+          create: (_) => EventController(),
+        ),
+      ],
+      child: MaterialApp(
+        useInheritedMediaQuery: true,
+        locale: DevicePreview.locale(context),
+        builder: DevicePreview.appBuilder,
+        title: 'Animation',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          primarySwatch: Colors.blue,
+        ),
+        home: PageViewHome(),
       ),
-      home: PageViewHome(),
     );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:animation/screens/homepackage/bottom.nav.widget.dart';
 import 'package:animation/screens/navscreens/community/community.dart';
 import 'package:animation/screens/navscreens/home.dart';
-import 'package:animation/screens/navscreens/learn.dart';
+import 'package:animation/screens/navscreens/learn/learn.dart';
 import 'package:animation/screens/navscreens/streak/streak.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';

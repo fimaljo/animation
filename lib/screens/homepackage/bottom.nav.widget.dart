@@ -1,6 +1,7 @@
 import 'package:animation/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 
 ValueNotifier<int> indexChangeNotifier = ValueNotifier(0);
 
@@ -49,10 +50,18 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
                     ),
                     label: ''),
                 BottomNavigationBarItem(
-                    icon: SvgPicture.asset(
-                      "assets/Streak fire.svg",
-                      color: newIndex == 3 ? secondary : Colors.white,
-                    ),
+                    icon:
+                        // SvgPicture.asset(
+                        //   "assets/Streak fire.svg",
+                        //   color: newIndex == 3 ? secondary : Colors.white,
+                        // ),
+                        newIndex != 3
+                            ? SvgPicture.asset(
+                                "assets/Streak fire.svg",
+                                color: newIndex == 3 ? secondary : Colors.white,
+                              )
+                            : Lottie.asset("assets/115865-simple-flame.json",
+                                height: 30, width: 60),
                     label: ''),
               ]);
         });

@@ -42,7 +42,7 @@ class _PageViewHomeState extends State<PageViewHome> {
       body: Column(
         children: [
           SizedBox(
-            height: 750,
+            height: size.height * 0.8,
             child: PageView(
               controller: _pageViewController,
               children: const [
@@ -55,9 +55,9 @@ class _PageViewHomeState extends State<PageViewHome> {
               ],
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          // SizedBox(
+          //   height: 20,
+          // ),
           SmoothPageIndicator(
             controller: _pageViewController,
             count: 5,

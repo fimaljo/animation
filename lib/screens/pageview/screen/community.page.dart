@@ -33,7 +33,7 @@ class CommunityPage extends StatelessWidget {
           Positioned(
               //top: 405,
               right: 236,
-              bottom: 640,
+              bottom: 500,
               child: Crab(
                 tag: "tagone",
                 child: TweenAnimationBuilder(

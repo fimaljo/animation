@@ -2,12 +2,14 @@ import 'package:animation/screens/articles/articles.dart';
 import 'package:animation/screens/articles/articles.screen.dart';
 import 'package:animation/screens/articles/test.dart';
 import 'package:animation/screens/articles/testtwo.dart';
+import 'package:animation/screens/events/all.events.dart';
+import 'package:animation/screens/events/all_events_two.dart';
+import 'package:animation/screens/events/events_screen.dart';
 import 'package:animation/screens/profile/profile.dart';
 import 'package:animation/utils/colors.dart';
 import 'package:animation/widgets/transaition.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:flutter_svg/flutter_svg.dart';
 
 class MenuScreen extends StatefulWidget {
@@ -48,7 +50,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 },
                 title: const Text(
                   "Profile",
-                  style: const TextStyle(fontSize: 15, color: Colors.white),
+                  style: const TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 leading: SvgPicture.asset(
                   "assets/User Profile.svg",
@@ -58,15 +60,20 @@ class _MenuScreenState extends State<MenuScreen> {
                 onTap: () {},
                 title: const Text(
                   "Leaderboard",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 leading: SvgPicture.asset("assets/leaderboard icon.svg"),
               ),
               ListTile(
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return EventsScreen();
+                  }));
+                },
                 title: const Text(
                   "Events",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 leading: SvgPicture.asset("assets/Event Icon.svg"),
               ),
@@ -74,7 +81,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 onTap: () {},
                 title: const Text(
                   "Internships",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 leading: SvgPicture.asset("assets/Internship icon.svg"),
               ),
@@ -89,7 +96,7 @@ class _MenuScreenState extends State<MenuScreen> {
                   tag: "articles",
                   child: Text(
                     "Articles",
-                    style: TextStyle(fontSize: 15, color: Colors.white),
+                    style: TextStyle(fontSize: 10, color: Colors.white),
                   ),
                 ),
                 leading: SvgPicture.asset("assets/ph_article-light.svg"),
@@ -98,7 +105,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 onTap: () {},
                 title: const Text(
                   "Settings",
-                  style: const TextStyle(fontSize: 15, color: Colors.white),
+                  style: const TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 leading: SvgPicture.asset("assets/Settings icon.svg"),
               ),
@@ -109,7 +116,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 onTap: () {},
                 title: const Text(
                   "Logout",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
+                  style: TextStyle(fontSize: 10, color: Colors.white),
                 ),
                 leading: const Icon(
                   Icons.logout,

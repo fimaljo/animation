@@ -91,7 +91,7 @@ class CommunityOverView extends StatelessWidget {
                                   ],
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsets.all(20.0),
+                                  padding: const EdgeInsets.all(10.0),
                                   child: Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
@@ -118,7 +118,7 @@ class CommunityOverView extends StatelessWidget {
                               ),
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 15, left: 15),
+                                    const EdgeInsets.only(top: 10, left: 15),
                                 child: Row(
                                   // crossAxisAlignment: CrossAxisAlignment.end,
                                   // mainAxisAlignment:

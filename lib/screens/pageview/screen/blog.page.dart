@@ -38,7 +38,7 @@ class _BlogPageState extends State<BlogPage> {
             ),
           ),
           Positioned(
-            top: 630,
+            top: 50,
             left: 236, //bottom: 640,
             child: TweenAnimationBuilder(
               tween: Tween(begin: 1.0, end: 0.0),

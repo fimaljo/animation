@@ -224,9 +224,6 @@ class CommunityIntro extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: Colors.black),
                   ),
-                  SizedBox(
-                    height: 90,
-                  ),
                 ],
               ),
             )
