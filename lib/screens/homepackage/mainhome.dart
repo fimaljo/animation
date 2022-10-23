@@ -1,11 +1,9 @@
 import 'package:animation/screens/homepackage/bottom.nav.widget.dart';
 import 'package:animation/screens/navscreens/community/community.dart';
-import 'package:animation/screens/navscreens/home.dart';
+import 'package:animation/screens/navscreens/home/home.dart';
 import 'package:animation/screens/navscreens/learn/learn.dart';
 import 'package:animation/screens/navscreens/streak/streak.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 class MainHome extends StatefulWidget {

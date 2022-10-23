@@ -65,9 +65,9 @@ class _AllEventsTwoState extends State<AllEventsTwo> {
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         ),
         Text('FILTER', style: TextStyle(color: Colors.black26)),
-        _buildButton('favorites'),
-        _buildButton('happy'),
-        _buildButton('sad')
+        // _buildButton('favorites'),
+        // _buildButton('happy'),
+        // _buildButton('sad')
       ],
     ));
   }
@@ -98,13 +98,13 @@ class _AllEventsTwoState extends State<AllEventsTwo> {
     );
   }
 
-  _buildButton(tag) {
-    // Color color = tag == activeTag ? Colors.purple : Colors.white;
-    return FlatButton(
-      onPressed: () {},
-      color: secondary,
-      child: Text('#$tag'),
-      // onPressed: () => _queryDb(tag: tag)
-    );
-  }
+  // _buildButton(tag) {
+  //   // Color color = tag == activeTag ? Colors.purple : Colors.white;
+  //   return FlatButton(
+  //     onPressed: () {},
+  //     color: secondary,
+  //     child: Text('#$tag'),
+  //     // onPressed: () => _queryDb(tag: tag)
+  //   );
+  // }
 }

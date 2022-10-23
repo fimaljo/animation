@@ -14,6 +14,11 @@ class DrawerScreen extends StatefulWidget {
 
 class _DrawerScreenState extends State<DrawerScreen> {
   final zoomDrawerController = ZoomDrawerController();
+  final zoomController = ZoomDrawerController();
+  // void test() {
+  //   zoomController.stateNotifier.addListener(() {});
+  // }
+
   @override
   Widget build(BuildContext context) {
     return ZoomDrawer(
@@ -24,10 +29,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
       borderRadius: 24.0,
       showShadow: true,
       menuBackgroundColor: secondary,
+      mainScreenTapClose: true,
       angle: .0,
       slideWidth: MediaQuery.of(context).size.width * .7,
-      openCurve: Curves.ease, duration: const Duration(milliseconds: 800),
-      reverseDuration: const Duration(seconds: 1),
+      openCurve: Curves.easeIn,
+      duration: const Duration(milliseconds: 800),
+      reverseDuration: const Duration(seconds: 5),
       closeCurve: Curves.easeOut,
     );
   }

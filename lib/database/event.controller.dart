@@ -11,9 +11,15 @@ class EventController extends ChangeNotifier {
   String errorMessage = "";
   bool isSuccess = false;
   bool isUploadSuccess = false;
+  Key key = UniqueKey();
   EventController() {
     getAllEvents();
   }
+  void setNewValue() {
+    key = UniqueKey();
+    notifyListeners();
+  }
+
   Future<void> getAllEvents() async {
     try {
       isLoading = true;

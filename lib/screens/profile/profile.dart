@@ -1,7 +1,6 @@
 import 'package:animation/screens/profile/star.rating.dart';
 import 'package:animation/utils/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);

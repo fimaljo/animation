@@ -146,22 +146,35 @@ class CommunityChat extends StatelessWidget {
                   ),
                 ),
                 decoration: const BoxDecoration(color: primary),
-              )
-            ],
-          ),
-          Column(
-            children: [
-              // Expanded(child: Container()),
+              ),
               Container(
-                color: Colors.grey.shade300,
-                child: TextField(
-                  decoration: const InputDecoration(
-                      contentPadding: EdgeInsets.all(12),
-                      hintText: 'Type your message gere....'),
+                alignment: Alignment.bottomCenter,
+                width: size.width,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                  width: size.width,
+                  color: Colors.grey,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          // controller: messageController,
+                          style: const TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            hintText: "Send a message...",
+                            hintStyle:
+                                TextStyle(color: Colors.white, fontSize: 16),
+                            border: InputBorder.none,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

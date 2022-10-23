@@ -28,25 +28,25 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               backgroundColor: dark,
               unselectedItemColor: Colors.white,
               selectedItemColor: secondary,
-              selectedIconTheme: const IconThemeData(color: secondary),
+              selectedIconTheme: const IconThemeData(color: yellow),
               unselectedIconTheme: const IconThemeData(color: Colors.white),
               items: [
                 BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       "assets/Home icon.svg",
-                      color: newIndex == 0 ? secondary : Colors.white,
+                      color: newIndex == 0 ? yellow : Colors.white,
                     ),
                     label: ''),
                 BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       "assets/Learn icon.svg",
-                      color: newIndex == 1 ? secondary : Colors.white,
+                      color: newIndex == 1 ? yellow : Colors.white,
                     ),
                     label: ''),
                 BottomNavigationBarItem(
                     icon: SvgPicture.asset(
                       "assets/community icon.svg",
-                      color: newIndex == 2 ? secondary : Colors.white,
+                      color: newIndex == 2 ? yellow : Colors.white,
                     ),
                     label: ''),
                 BottomNavigationBarItem(

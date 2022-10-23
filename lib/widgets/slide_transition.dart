@@ -2,17 +2,17 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class DelayedAnimation extends StatefulWidget {
+class SlideAnimation extends StatefulWidget {
   final Widget child;
   final int delay;
 
-  DelayedAnimation({required this.child, this.delay = 2000});
+  SlideAnimation({required this.child, this.delay = 1000});
 
   @override
-  _DelayedAnimationState createState() => _DelayedAnimationState();
+  _SlideAnimationState createState() => _SlideAnimationState();
 }
 
-class _DelayedAnimationState extends State<DelayedAnimation>
+class _SlideAnimationState extends State<SlideAnimation>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animOffset;
@@ -22,12 +22,12 @@ class _DelayedAnimationState extends State<DelayedAnimation>
     super.initState();
 
     _controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 5000));
+        vsync: this, duration: Duration(milliseconds: 1000));
 
     final curve =
         CurvedAnimation(curve: Curves.decelerate, parent: _controller);
     _animOffset =
-        Tween<Offset>(begin: const Offset(0.0, 0.35), end: Offset.zero)
+        Tween<Offset>(begin: const Offset(-35.0, 0.35), end: Offset.zero)
             .animate(curve);
 
     if (widget.delay == null) {
@@ -49,12 +49,9 @@ class _DelayedAnimationState extends State<DelayedAnimation>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      child: SlideTransition(
-        position: _animOffset,
-        child: widget.child,
-      ),
-      opacity: _controller,
+    return SlideTransition(
+      position: _animOffset,
+      child: widget.child,
     );
   }
 }
