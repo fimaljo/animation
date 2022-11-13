@@ -83,18 +83,19 @@ class _AllEventsTwoState extends State<AllEventsTwo> {
       curve: Curves.easeOutQuint,
       margin: EdgeInsets.only(top: top, bottom: 50, right: 30),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(
-                "https://xnodzdyvvfytarydsjvq.supabase.co/storage/v1/object/public/the-bucket/thumbnails/events/lake.jpg"),
-          ),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.black87,
-                blurRadius: blur,
-                offset: Offset(offset, offset))
-          ]),
+        borderRadius: BorderRadius.circular(20),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(
+              "https://xnodzdyvvfytarydsjvq.supabase.co/storage/v1/object/public/the-bucket/thumbnails/events/lake.jpg"),
+        ),
+        boxShadow: [
+          BoxShadow(
+              color: Colors.black87,
+              blurRadius: blur,
+              offset: Offset(offset, offset))
+        ],
+      ),
     );
   }
 

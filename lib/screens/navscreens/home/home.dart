@@ -6,7 +6,8 @@ import 'package:animation/screens/profile/strek.rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
-import 'package:provider/provider.dart%20';
+import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart%20';
 
 import '../../../database/event.controller.dart';
 import '../../../utils/colors.dart';
@@ -43,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: GestureDetector(
+        leading: InkWell(
           onTap: () {
             budgetViewModel.setNewValue();
             //  key = Key();
@@ -731,6 +732,15 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
     );
   }
+
+  // _logout() async {
+  //   await GetIt.I.get<SupabaseClient>().auth.signOut();
+
+  //   final sharedPreferences = await SharedPreferences.getInstance();
+  //   sharedPreferences.clear();
+
+  //   Navigator.pushReplacementNamed(context, '/');
+  // }
 }
 
 class TrendingStreaksCard extends StatelessWidget {

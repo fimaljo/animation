@@ -55,15 +55,12 @@ class _ArticlePageState extends State<ArticlePage> {
               const SizedBox(
                 height: 31,
               ),
-              Hero(
-                tag: "articles",
-                child: const Text(
-                  "Articles",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24),
-                ),
+              const Text(
+                "Articles",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 24),
               ),
               SizedBox(
                 height: 20,

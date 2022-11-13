@@ -70,7 +70,7 @@ class _ArticlesState extends State<Articles> {
                 height: 31,
               ),
               const Text(
-                "Articles",
+                "Articlea",
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,

@@ -1,25 +1,29 @@
-import 'package:animation/database/database_notifier.dart';
 import 'package:animation/database/event.controller.dart';
 import 'package:animation/env.dart';
-import 'package:animation/screens/animation/animated_builder.dart';
-import 'package:animation/screens/animation/animated_container.dart';
-import 'package:animation/screens/animation/home.dart';
-import 'package:animation/screens/pageview/pageview_inunity.dart';
-import 'package:animation/widgets/inunty.signup.dart';
+import 'package:animation/screens/homepackage/mainhome.dart';
+import 'package:animation/screens/login/login.page.dart';
+import 'package:animation/screens/login/signup.page.dart';
+import 'package:animation/screens/login/splash.view.dart';
+import 'package:animation/screens/navscreens/home/home.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Supabase.initialize(
-    url: DevConstants.SUPABASE_URL,
-    anonKey: DevConstants.SUPABASE_ANON_KEY,
-    authCallbackUrlHostname: 'login-callback',
-    debug: true,
-  );
+void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Supabase.initialize(
+  //   url: DevConstants.SUPABASE_URL,
+  //   anonKey: DevConstants.SUPABASE_ANON_KEY,
+  //   authCallbackUrlHostname: 'login-callback',
+  //   debug: true,
+  // );
+  GetIt locator = GetIt.instance;
+  locator.registerSingleton<SupabaseClient>(SupabaseClient(
+      'https://xawvufyykosuikmynizr.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhhd3Z1Znl5a29zdWlrbXluaXpyIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjU0ODc2MjIsImV4cCI6MTk4MTA2MzYyMn0.oI-C5hpDCBY47RVfQrZ8qhd2ys__j4kd-wqXfHlmq20'));
 
   runApp(
       DevicePreview(enabled: !kReleaseMode, builder: ((context) => MyApp())));
@@ -43,11 +47,18 @@ class MyApp extends StatelessWidget {
         builder: DevicePreview.appBuilder,
         title: 'Animation',
         debugShowCheckedModeBanner: false,
+        initialRoute: '/',
+        routes: {
+          '/': (_) => SplashView(),
+          '/login': (_) => const LoginView(),
+          '/register': (_) => const RegisterView(),
+          '/home': (_) => const MainHome(),
+        },
         theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           primarySwatch: Colors.blue,
         ),
-        home: PageViewHome(),
+        // home: MainHome(),
       ),
     );
   }
